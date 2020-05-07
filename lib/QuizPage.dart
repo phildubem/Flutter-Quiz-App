@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -203,11 +204,56 @@ class _QuizPageState extends State<QuizPage> {
                 ],
               ),
 
+              SizedBox(height: 10.0),
+              Container(
+                padding: EdgeInsets.all(5.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton (
+                      padding: EdgeInsets.all(5.0),
+                      color: Colors.greenAccent,
+                      onPressed: () {
+                        questionNumber++;
+                      },
+                      child: Text("Next Question",
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: "OpenSans",
+                            color: Colors.white
+                        ),),
+                    ),
+
+                    RaisedButton (
+                      padding: EdgeInsets.all(5.0),
+                      color: Colors.redAccent,
+                      onPressed: () {
+                        resetQuiz();
+                      },
+                      child: Text("Exit",
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: "OpenSans",
+                            color: Colors.white
+                        ),),
+                    ),
+
+                  ],
+                ),
+              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  void resetQuiz() {
+    setState(() {
+      Navigator.pop(context);
+      finalScore = 0;
+      questionNumber = 0;
+    });
   }
 
   void updateQuestion() {
