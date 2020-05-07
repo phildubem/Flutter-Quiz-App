@@ -214,7 +214,7 @@ class _QuizPageState extends State<QuizPage> {
                       padding: EdgeInsets.all(5.0),
                       color: Colors.greenAccent,
                       onPressed: () {
-                        questionNumber++;
+                        updateQuestion();
                       },
                       child: Text("Next Question",
                         style: TextStyle(
