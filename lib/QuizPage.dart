@@ -206,7 +206,7 @@ class _QuizPageState extends State<QuizPage> {
                 ],
               ),
 
-              SizedBox(height: 20.0),
+              SizedBox(height: 40.0),
               Container(
                 color: Colors.black26,
                 padding: EdgeInsets.all(10.0),
