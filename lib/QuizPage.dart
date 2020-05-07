@@ -214,7 +214,7 @@ class _QuizPageState extends State<QuizPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     RaisedButton (
-                      padding: EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 10.0),
+                      padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                       color: Colors.greenAccent,
                       onPressed: () {
                         updateQuestion();
@@ -228,7 +228,7 @@ class _QuizPageState extends State<QuizPage> {
                     ),
 
                     RaisedButton (
-                      padding: EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 10.0),
+                      padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                       color: Colors.redAccent,
                       onPressed: () {
                         resetQuiz();
