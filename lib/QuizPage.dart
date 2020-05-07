@@ -77,23 +77,25 @@ class _QuizPageState extends State<QuizPage> {
                     Container(
                       padding: EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
-                        color: Colors.deepPurple,
+                          color: Colors.black45,
                         borderRadius: BorderRadius.circular(5.0)
                       ),
                       child: Text("Question ${questionNumber + 1} of ${quiz.questions.length}",
                       style: TextStyle(
-                        fontSize: 22.0
+                        fontSize: 22.0,
+                        color: Colors.white
                       ),),
                     ),
                     Container(
                       padding: EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: Colors.black45,
                           borderRadius: BorderRadius.circular(5.0)
                       ),
                       child: Text("Score: $finalScore",
                         style: TextStyle(
-                            fontSize: 22.0
+                            fontSize: 22.0,
+                          color: Colors.white
                         ),),
                     ),
                   ],
@@ -122,7 +124,7 @@ class _QuizPageState extends State<QuizPage> {
                 children: <Widget>[
                   RaisedButton (
                     padding: EdgeInsets.all(5.0),
-                    color: Colors.deepPurple,
+                    color: Colors.blueGrey,
                     onPressed: () {
                       if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
                         finalScore = finalScore + 4;
@@ -141,7 +143,7 @@ class _QuizPageState extends State<QuizPage> {
 
                   RaisedButton (
                     padding: EdgeInsets.all(5.0),
-                    color: Colors.deepPurple,
+                    color: Colors.blueGrey,
                     onPressed: () {
                       if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
                         finalScore = finalScore + 4;
@@ -166,7 +168,7 @@ class _QuizPageState extends State<QuizPage> {
                 children: <Widget>[
                   RaisedButton (
                     padding: EdgeInsets.all(5.0),
-                    color: Colors.deepPurple,
+                    color: Colors.blueGrey,
                     onPressed: () {
                       if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
                         finalScore = finalScore + 4;
@@ -185,7 +187,7 @@ class _QuizPageState extends State<QuizPage> {
 
                   RaisedButton (
                     padding: EdgeInsets.all(5.0),
-                    color: Colors.deepPurple,
+                    color: Colors.blueGrey,
                     onPressed: () {
                       if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
                         finalScore = finalScore + 4;
@@ -204,28 +206,29 @@ class _QuizPageState extends State<QuizPage> {
                 ],
               ),
 
-              SizedBox(height: 10.0),
+              SizedBox(height: 20.0),
               Container(
-                padding: EdgeInsets.all(5.0),
+                color: Colors.black26,
+                padding: EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     RaisedButton (
-                      padding: EdgeInsets.all(5.0),
+                      padding: EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 10.0),
                       color: Colors.greenAccent,
                       onPressed: () {
                         updateQuestion();
                       },
-                      child: Text("Next Question",
+                      child: Text("Next",
                         style: TextStyle(
                             fontSize: 20.0,
                             fontFamily: "OpenSans",
-                            color: Colors.white
+                            color: Colors.black
                         ),),
                     ),
 
                     RaisedButton (
-                      padding: EdgeInsets.all(5.0),
+                      padding: EdgeInsets.fromLTRB(40.0, 10.0, 40.0, 10.0),
                       color: Colors.redAccent,
                       onPressed: () {
                         resetQuiz();
@@ -277,9 +280,51 @@ class Summary extends StatelessWidget{
     return WillPopScope(
         onWillPop: ()async => false,
         child: Scaffold(
+          body: SafeArea(
+            minimum: EdgeInsets.all(20.0),
+            child: Container(
+              child: Center(
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 180.0),
+                    Text("All questions have 4 points each",
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          fontFamily: "OpenSans",
+                          color: Colors.black54
+                      ),),
+                    Text("Your total points is: $score",
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "OpenSans",
+                          color: Colors.black
+                      ),),
+                    SizedBox(height: 40.0),
+                    RaisedButton (
+                      padding: EdgeInsets.all(5.0),
+                      color: Colors.red,
+                      onPressed: () {
+                        questionNumber = 0;
+                        finalScore = 0;
+                        Navigator.pop(context);
+                      },
+                      child: Text("Exit",
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: "OpenSans",
+                            color: Colors.white
+                        ),),
+                    ),
 
+                  ],
+                ),
+              ),
+            ),
+          ),
         ),
     );
 
   }
+
 }
