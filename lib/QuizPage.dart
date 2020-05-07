@@ -29,7 +29,7 @@ class QuizCard {
     ['Compile New Codes', 'Less Time', 'Full Compile', 'State Preserve'],
     ['Xamarin', 'React Native', 'Swift', 'Flutter'],
     ['MongoDB', 'Auth0', 'Firebase', 'Parse'],
-    ['Project General Settings', 'Project Assets', 'Project Dependencies', 'Project Readme'],
+    ['General Settings', ' Assets', ' Dependencies', ' Readme'],
     ['Shared State', 'Ephemeral State', 'UI State', 'Local State'],
     ['Alibaba', 'Tecent', 'Skype', 'Google Ads']
   ];
@@ -57,194 +57,212 @@ class _QuizPageState extends State<QuizPage> {
     return WillPopScope(
       onWillPop: ()async => false,
       child: Scaffold(
-        appBar: AppBar(
-          title: Text("Quiz App"),
-          backgroundColor: Colors.deepPurple,
-        ),
-        body: Container(
-          margin: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 5.0),
-          alignment: Alignment.topCenter,
-          child: Column(
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 10.0),
-              ),
-              Container(
-                alignment: Alignment.centerRight,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                          color: Colors.black45,
-                        borderRadius: BorderRadius.circular(5.0)
+        body: SafeArea(
+          minimum: EdgeInsets.fromLTRB(2.0, 20.0, 2.0, 5.0),
+          child: Container(
+            margin: EdgeInsets.fromLTRB(15.0, 5.0, 15.0, 5.0),
+            alignment: Alignment.topCenter,
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 15.0),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 10.0),
+                ),
+                Container(
+                  alignment: Alignment.centerRight,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(5.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.black12
+                            ),
+                            color: Colors.black38,
+                          borderRadius: BorderRadius.circular(5.0)
+                        ),
+                        child: Text("Question ${questionNumber + 1} of ${quiz.questions.length}",
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white
+                        ),),
                       ),
-                      child: Text("Question ${questionNumber + 1} of ${quiz.questions.length}",
+                      Container(
+                        padding: EdgeInsets.all(5.0),
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.black12
+                            ),
+                            color: Colors.black38,
+                            borderRadius: BorderRadius.circular(5.0)
+                        ),
+                        child: Text("Points: $finalScore",
+                          style: TextStyle(
+                              fontSize: 20.0,
+                            color: Colors.white
+                          ),),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 25.0),
+                Container(
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.black26
+                    ),
+                    image: DecorationImage(
+                        image: AssetImage("images/${quiz.images[questionNumber]}.png"),
+                        fit: BoxFit.fill
+                    ),
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                ),
+                SizedBox(height: 20.0),
+              Text(quiz.questions[questionNumber],
+              style: TextStyle(
+                fontFamily: "OpenSans",
+                fontSize: 18.0,
+                fontWeight: FontWeight.w600
+              ),),
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    RaisedButton (
+                      padding: EdgeInsets.all(6.0),
+                      color: Colors.blueGrey,
+                      onPressed: () {
+                        if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
+                          finalScore = finalScore + 4;
+                        }else{
+                          debugPrint("Wrong");
+                        }
+                        updateQuestion();
+                      },
+                      child: Text(quiz.choices[questionNumber][0],
                       style: TextStyle(
                         fontSize: 22.0,
+                        fontFamily: "AlegreyaSans",
                         color: Colors.white
                       ),),
                     ),
-                    Container(
-                      padding: EdgeInsets.all(5.0),
-                      decoration: BoxDecoration(
-                          color: Colors.black45,
-                          borderRadius: BorderRadius.circular(5.0)
-                      ),
-                      child: Text("Score: $finalScore",
+
+                    RaisedButton (
+                      padding: EdgeInsets.all(6.0),
+                      color: Colors.blueGrey,
+                      onPressed: () {
+                        if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
+                          finalScore = finalScore + 4;
+                        }else{
+                          debugPrint("Wrong");
+                        }
+                        updateQuestion();
+                      },
+                      child: Text(quiz.choices[questionNumber][1],
                         style: TextStyle(
                             fontSize: 22.0,
-                          color: Colors.white
+                            fontFamily: "AlegreyaSans",
+                            color: Colors.white
                         ),),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(height: 20.0),
-              Container(
-                height: 200.0,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage("images/${quiz.images[questionNumber]}.png"),
-                      fit: BoxFit.fill
-                  ),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-              ),
-              SizedBox(height: 20.0),
-            Text(quiz.questions[questionNumber],
-            style: TextStyle(
-              fontFamily: "AlegreyaSans",
-              fontSize: 20.0,
-            ),),
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  RaisedButton (
-                    padding: EdgeInsets.all(5.0),
-                    color: Colors.blueGrey,
-                    onPressed: () {
-                      if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
-                        finalScore = finalScore + 4;
-                      }else{
-                        debugPrint("Wrong");
-                      }
-                      updateQuestion();
-                    },
-                    child: Text(quiz.choices[questionNumber][0],
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontFamily: "OpenSans",
-                      color: Colors.white
-                    ),),
-                  ),
 
-                  RaisedButton (
-                    padding: EdgeInsets.all(5.0),
-                    color: Colors.blueGrey,
-                    onPressed: () {
-                      if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
-                        finalScore = finalScore + 4;
-                      }else{
-                        debugPrint("Wrong");
-                      }
-                      updateQuestion();
-                    },
-                    child: Text(quiz.choices[questionNumber][1],
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontFamily: "OpenSans",
-                          color: Colors.white
-                      ),),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 10.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  RaisedButton (
-                    padding: EdgeInsets.all(5.0),
-                    color: Colors.blueGrey,
-                    onPressed: () {
-                      if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
-                        finalScore = finalScore + 4;
-                      }else{
-                        debugPrint("Wrong");
-                      }
-                      updateQuestion();
-                    },
-                    child: Text(quiz.choices[questionNumber][2],
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontFamily: "OpenSans",
-                          color: Colors.white
-                      ),),
-                  ),
-
-                  RaisedButton (
-                    padding: EdgeInsets.all(5.0),
-                    color: Colors.blueGrey,
-                    onPressed: () {
-                      if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
-                        finalScore = finalScore + 4;
-                      }else{
-                        debugPrint("Wrong");
-                      }
-                      updateQuestion();
-                    },
-                    child: Text(quiz.choices[questionNumber][3],
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontFamily: "OpenSans",
-                          color: Colors.white
-                      ),),
-                  ),
-                ],
-              ),
-
-              SizedBox(height: 40.0),
-              Container(
-                color: Colors.black26,
-                padding: EdgeInsets.all(10.0),
-                child: Row(
+                SizedBox(height: 10.0),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     RaisedButton (
-                      padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
-                      color: Colors.greenAccent,
+                      padding: EdgeInsets.all(6.0),
+                      color: Colors.blueGrey,
                       onPressed: () {
+                        if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
+                          finalScore = finalScore + 4;
+                        }else{
+                          debugPrint("Wrong");
+                        }
                         updateQuestion();
                       },
-                      child: Text("Next",
+                      child: Text(quiz.choices[questionNumber][2],
                         style: TextStyle(
-                            fontSize: 20.0,
-                            fontFamily: "OpenSans",
-                            color: Colors.black
-                        ),),
-                    ),
-
-                    RaisedButton (
-                      padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
-                      color: Colors.redAccent,
-                      onPressed: () {
-                        resetQuiz();
-                      },
-                      child: Text("Exit",
-                        style: TextStyle(
-                            fontSize: 20.0,
-                            fontFamily: "OpenSans",
+                            fontSize: 22.0,
+                            fontFamily: "AlegreyaSans",
                             color: Colors.white
                         ),),
                     ),
 
+                    RaisedButton (
+                      padding: EdgeInsets.all(6.0),
+                      color: Colors.blueGrey,
+                      onPressed: () {
+                        if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
+                          finalScore = finalScore + 4;
+                        }else{
+                          debugPrint("Wrong");
+                        }
+                        updateQuestion();
+                      },
+                      child: Text(quiz.choices[questionNumber][3],
+                        style: TextStyle(
+                            fontSize: 22.0,
+                            fontFamily: "AlegreyaSans",
+                            color: Colors.white
+                        ),),
+                    ),
                   ],
                 ),
-              )
-            ],
+
+                SizedBox(height: 35.0),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Colors.black12
+                    ),
+                    color: Colors.black26,
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  padding: EdgeInsets.fromLTRB(5.0, 8.0, 5.0, 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      RaisedButton (
+                        padding: EdgeInsets.fromLTRB(60.0, 10.0, 60.0, 10.0),
+                        color: Colors.greenAccent,
+                        onPressed: () {
+                          updateQuestion();
+                        },
+                        child: Text("Next",
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              fontFamily: "OpenSans",
+                              color: Colors.black
+                          ),),
+                      ),
+
+                      RaisedButton (
+                        padding: EdgeInsets.fromLTRB(60.0, 10.0, 60.0, 10.0),
+                        color: Colors.redAccent,
+                        onPressed: () {
+                          resetQuiz();
+                        },
+                        child: Text("Exit",
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              fontFamily: "OpenSans",
+                              color: Colors.white
+                          ),),
+                      ),
+
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
