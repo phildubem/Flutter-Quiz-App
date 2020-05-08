@@ -45,6 +45,8 @@ class _QuizAppState extends State<QuizApp> {
                    RaisedButton(
                      padding: EdgeInsets.only(top: 25.0, bottom: 25.0),
                      color: Color(0xFF001052),
+                     shape: RoundedRectangleBorder(
+                         borderRadius: BorderRadius.circular(15)),
                      elevation: 9.0,
                      onPressed: () {
                        Navigator.push(context,

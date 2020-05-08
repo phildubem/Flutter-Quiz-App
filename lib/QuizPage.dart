@@ -120,7 +120,7 @@ class _QuizPageState extends State<QuizPage> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 25.0),
+                  SizedBox(height: 22.0),
                   Container(
                     height: 200.0,
                     decoration: BoxDecoration(
@@ -134,11 +134,11 @@ class _QuizPageState extends State<QuizPage> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  SizedBox(height: 17.0),
                 Text(quiz.questions[questionNumber],
                 style: TextStyle(
                   fontFamily: "OpenSans",
-                  fontSize: 18.0,
+                  fontSize: 19.0,
                   fontWeight: FontWeight.w600
                 ),),
                   SizedBox(height: 20.0),
@@ -160,6 +160,8 @@ class _QuizPageState extends State<QuizPage> {
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
                           color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
                               finalScore = finalScore + 4;
@@ -180,6 +182,8 @@ class _QuizPageState extends State<QuizPage> {
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
                           color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
                               finalScore = finalScore + 4;
@@ -210,6 +214,8 @@ class _QuizPageState extends State<QuizPage> {
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
                           color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
                               finalScore = finalScore + 4;
@@ -230,6 +236,8 @@ class _QuizPageState extends State<QuizPage> {
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
                           color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
                               finalScore = finalScore + 4;
@@ -256,7 +264,7 @@ class _QuizPageState extends State<QuizPage> {
                           color: Colors.black12
                       ),
                       color: Colors.black26,
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                     padding: EdgeInsets.fromLTRB(5.0, 8.0, 5.0, 10.0),
                     child: Row(
@@ -265,6 +273,8 @@ class _QuizPageState extends State<QuizPage> {
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(60.0, 10.0, 60.0, 10.0),
                           color: Color(0xFF001052),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             updateQuestion();
                           },
@@ -280,6 +290,8 @@ class _QuizPageState extends State<QuizPage> {
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
                           color: Color(0xFF001052),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
                             resetQuiz();
                           },
@@ -382,9 +394,11 @@ class Summary extends StatelessWidget{
                         ),),
                       SizedBox(height: 50.0),
                       RaisedButton (
-                        elevation: 5.0,
+                        elevation: 15.0,
                         padding: EdgeInsets.fromLTRB(65.0, 15.0, 65.0, 15.0),
                         color: Colors.red,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
                         onPressed: () {
                           questionNumber = 0;
                           finalScore = 0;
