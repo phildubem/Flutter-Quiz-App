@@ -264,7 +264,7 @@ class _QuizPageState extends State<QuizPage> {
                       children: <Widget>[
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(60.0, 10.0, 60.0, 10.0),
-                          color: Colors.black38,
+                          color: Color(0xFF001052),
                           onPressed: () {
                             updateQuestion();
                           },
@@ -279,7 +279,7 @@ class _QuizPageState extends State<QuizPage> {
 
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(50.0, 10.0, 50.0, 10.0),
-                          color: Colors.black38,
+                          color: Color(0xFF001052),
                           onPressed: () {
                             resetQuiz();
                           },
