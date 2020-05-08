@@ -68,7 +68,7 @@ class _QuizPageState extends State<QuizPage> {
                 Color(0xFF478DE0),
                 Color(0xFF398AE5),
               ],
-              stops: [0.1, 0.4, 0.7, 0.9],
+              stops: [0.3, 0.3, 0.7, 0.9],
             ),
           ),
           child: SafeArea(

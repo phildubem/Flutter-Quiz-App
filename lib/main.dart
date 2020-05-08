@@ -41,8 +41,8 @@ class _QuizAppState extends State<QuizApp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                  RaisedButton(
-                   padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
-                   color: Colors.cyan,
+                   padding: EdgeInsets.only(top: 25.0, bottom: 25.0),
+                   color: Colors.blueAccent,
                    elevation: 4.0,
                    onPressed: () {
                      Navigator.push(context,
@@ -50,7 +50,7 @@ class _QuizAppState extends State<QuizApp> {
                    },
                    child: Text("Click to Start Quiz",
                    style: TextStyle(
-                     fontSize: 20.0,
+                     fontSize: 22.0,
                      color: Colors.white,
                      fontFamily: "OpenSans",
                      fontWeight: FontWeight.bold
