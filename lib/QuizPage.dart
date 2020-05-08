@@ -23,20 +23,20 @@ class QuizCard {
 
   var choices = [
     ['Android', 'Web', 'IOS', 'All Listed'],
-    ['Python', 'TypeScript', 'Dart', 'Vue'],
+    ['Python', 'Dart', 'TypeScript',  'Vue'],
     ['Stateless', 'Widgets', 'Stateful', 'Blocks'],
-    ['ModeBanner', 'Banner', 'MaterialGrid', 'ShowBanner'],
-    ['Compile New Codes', 'Less Time', 'Full Compile', 'State Preserve'],
-    ['Xamarin', 'React Native', 'Swift', 'Flutter'],
-    ['MongoDB', 'Auth0', 'Firebase', 'Parse'],
-    ['General Settings', ' Assets', ' Dependencies', ' Readme'],
-    ['Shared State', 'Ephemeral State', 'UI State', 'Local State'],
-    ['Alibaba', 'Tecent', 'Skype', 'Google Ads']
+    ['ModeBanner', 'BannerShow', 'MaterialGrid', 'ShowBanner'],
+    ['Compile New Codes', 'Less Time', 'Full Compile', 'App State Preserve'],
+    ['Xamarin', 'React ', 'Swift', 'Flutter'],
+    ['Mongo', 'Auth0', 'Firebase', 'Parse'],
+    ['General Setting', ' Asset', ' Dependencies', ' Readme'],
+    ['Shared State',  'UI State', 'Ephe State', 'Local State'],
+    ['Alibaba', 'Tecent', 'Skype', 'Google']
   ];
 
   var correctAnswers = [
-    'All Listed', 'Dart', 'Widgets', 'CheckedModeBanner', 'Full Compile',
-    'Swift', 'Firebase', 'Project Readme', 'Shared State', 'Skype',
+    'All Listed', 'Dart', 'Widgets', 'ModeBanner', 'Full Compile',
+    'Swift', 'Firebase', ' Readme', 'Shared State', 'Skype',
   ];
 }
 
@@ -142,93 +142,111 @@ class _QuizPageState extends State<QuizPage> {
                   fontWeight: FontWeight.w600
                 ),),
                   SizedBox(height: 20.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      RaisedButton (
-                        padding: EdgeInsets.all(6.0),
-                        color: Colors.blueGrey,
-                        onPressed: () {
-                          if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
-                            finalScore = finalScore + 4;
-                          }else{
-                            debugPrint("Wrong");
-                          }
-                          updateQuestion();
-                        },
-                        child: Text(quiz.choices[questionNumber][0],
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          fontFamily: "AlegreyaSans",
-                          color: Colors.white
-                        ),),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(5.0, 5.0, 5.0, 10.0),
+                    decoration: BoxDecoration(
+                      border: Border(
+                          bottom: BorderSide(
+                            color: Colors.black26,
+                            width: 2.0,
+                          ),
                       ),
-
-                      RaisedButton (
-                        padding: EdgeInsets.all(6.0),
-                        color: Colors.blueGrey,
-                        onPressed: () {
-                          if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
-                            finalScore = finalScore + 4;
-                          }else{
-                            debugPrint("Wrong");
-                          }
-                          updateQuestion();
-                        },
-                        child: Text(quiz.choices[questionNumber][1],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        RaisedButton (
+                          padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                          elevation: 8.0,
+                          color: Colors.white,
+                          onPressed: () {
+                            if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
+                              finalScore = finalScore + 4;
+                            }else{
+                              debugPrint("Wrong");
+                            }
+                            updateQuestion();
+                          },
+                          child: Text(quiz.choices[questionNumber][0],
                           style: TextStyle(
-                              fontSize: 22.0,
-                              fontFamily: "AlegreyaSans",
-                              color: Colors.white
+                            fontSize: 22.0,
+                            fontFamily: "AlegreyaSans",
+                            color: Colors.black
                           ),),
-                      ),
-                    ],
+                        ),
+
+                        RaisedButton (
+                          padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                          elevation: 8.0,
+                          color: Colors.white,
+                          onPressed: () {
+                            if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
+                              finalScore = finalScore + 4;
+                            }else{
+                              debugPrint("Wrong");
+                            }
+                            updateQuestion();
+                          },
+                          child: Text(quiz.choices[questionNumber][1],
+                            style: TextStyle(
+                                fontSize: 22.0,
+                                fontFamily: "AlegreyaSans",
+                                color: Colors.black
+                            ),),
+                        ),
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 10.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      RaisedButton (
-                        padding: EdgeInsets.all(6.0),
-                        color: Colors.blueGrey,
-                        onPressed: () {
-                          if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
-                            finalScore = finalScore + 4;
-                          }else{
-                            debugPrint("Wrong");
-                          }
-                          updateQuestion();
-                        },
-                        child: Text(quiz.choices[questionNumber][2],
-                          style: TextStyle(
-                              fontSize: 22.0,
-                              fontFamily: "AlegreyaSans",
-                              color: Colors.white
-                          ),),
-                      ),
+                  Container(
+                    padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        RaisedButton (
+                          padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                          elevation: 8.0,
+                          color: Colors.white,
+                          onPressed: () {
+                            if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
+                              finalScore = finalScore + 4;
+                            }else{
+                              debugPrint("Wrong");
+                            }
+                            updateQuestion();
+                          },
+                          child: Text(quiz.choices[questionNumber][2],
+                            style: TextStyle(
+                                fontSize: 22.0,
+                                fontFamily: "AlegreyaSans",
+                                color: Colors.black
+                            ),),
+                        ),
 
-                      RaisedButton (
-                        padding: EdgeInsets.all(6.0),
-                        color: Colors.blueGrey,
-                        onPressed: () {
-                          if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
-                            finalScore = finalScore + 4;
-                          }else{
-                            debugPrint("Wrong");
-                          }
-                          updateQuestion();
-                        },
-                        child: Text(quiz.choices[questionNumber][3],
-                          style: TextStyle(
-                              fontSize: 22.0,
-                              fontFamily: "AlegreyaSans",
-                              color: Colors.white
-                          ),),
-                      ),
-                    ],
+                        RaisedButton (
+                          padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
+                          elevation: 8.0,
+                          color: Colors.white,
+                          onPressed: () {
+                            if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
+                              finalScore = finalScore + 4;
+                            }else{
+                              debugPrint("Wrong");
+                            }
+                            updateQuestion();
+                          },
+                          child: Text(quiz.choices[questionNumber][3],
+                            style: TextStyle(
+                                fontSize: 22.0,
+                                fontFamily: "AlegreyaSans",
+                                color: Colors.black
+                            ),),
+                        ),
+                      ],
+                    ),
                   ),
 
                   SizedBox(height: 35.0),

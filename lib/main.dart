@@ -19,7 +19,7 @@ class _QuizAppState extends State<QuizApp> {
 
 
       body: Container(
-        color: Color(0xFF001052).withOpacity(.8),
+        color: Color(0xFF001052).withOpacity(.9),
         child: SafeArea(
           minimum: EdgeInsets.all(5.0),
           child: Container(
@@ -45,7 +45,7 @@ class _QuizAppState extends State<QuizApp> {
                    RaisedButton(
                      padding: EdgeInsets.only(top: 25.0, bottom: 25.0),
                      color: Color(0xFF001052),
-                     elevation: 5.0,
+                     elevation: 9.0,
                      onPressed: () {
                        Navigator.push(context,
                            MaterialPageRoute(builder: (context) => QuizPage()));
