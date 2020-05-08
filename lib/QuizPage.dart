@@ -57,6 +57,7 @@ class _QuizPageState extends State<QuizPage> {
     return WillPopScope(
       onWillPop: ()async => false,
       child: Scaffold(
+        backgroundColor: Colors.cyan,
         body: SafeArea(
           minimum: EdgeInsets.fromLTRB(2.0, 20.0, 2.0, 5.0),
           child: Container(
@@ -299,12 +300,25 @@ class Summary extends StatelessWidget{
         onWillPop: ()async => false,
         child: Scaffold(
           body: SafeArea(
-            minimum: EdgeInsets.all(20.0),
+            minimum: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 30.0),
             child: Container(
               child: Center(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 180.0),
+                    Container(
+                      color: Colors.blueGrey,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(15.0, 15.0, 245.0, 15.0),
+                        child: Text("Score Card",
+                          style: TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "OpenSans",
+                              color: Colors.white
+                          ),),
+                      ),
+                    ),
+                    SizedBox(height: 150.0),
                     Text("All questions have 4 points each",
                       style: TextStyle(
                           fontSize: 20.0,
@@ -325,7 +339,7 @@ class Summary extends StatelessWidget{
                       onPressed: () {
                         questionNumber = 0;
                         finalScore = 0;
-                        Navigator.pop(context);
+                        Navigator.of(context).popUntil((route) => route.isFirst);
                       },
                       child: Text("Exit",
                         style: TextStyle(

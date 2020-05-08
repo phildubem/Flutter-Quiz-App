@@ -42,7 +42,8 @@ class _QuizAppState extends State<QuizApp> {
                 children: <Widget>[
                  RaisedButton(
                    padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
-                   color: Colors.deepPurple,
+                   color: Colors.cyan,
+                   elevation: 4.0,
                    onPressed: () {
                      Navigator.push(context,
                          MaterialPageRoute(builder: (context) => QuizPage()));
