@@ -269,7 +269,7 @@ class _QuizPageState extends State<QuizPage> {
                             style: TextStyle(
                                 fontSize: 20.0,
                                 fontFamily: "OpenSans",
-                                color: Colors.redAccent,
+                                color: Colors.white70,
                                 fontWeight: FontWeight.w500
                             ),),
                         ),
@@ -326,7 +326,7 @@ class Summary extends StatelessWidget{
                   Color(0xFF478DE0),
                   Color(0xFF398AE5),
                 ],
-                stops: [0.1, 0.4, 0.7, 0.9],
+                stops: [0.2, 0.2, 0.7, 0.9],
               ),
             ),
             child: SafeArea(
