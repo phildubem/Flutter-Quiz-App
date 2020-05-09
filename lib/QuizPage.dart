@@ -265,7 +265,6 @@ class _QuizPageState extends State<QuizPage> {
                                 debugPrint("Wrong");
                                 buttonStatus = ButtonColor.WrongAnswer;
                               }
-
                             });
                           },
                           child: Text(quiz.choices[questionNumber][2],
