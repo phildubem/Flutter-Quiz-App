@@ -40,13 +40,42 @@ class QuizCard {
   ];
 }
 
+
 var finalScore = 0;
 var questionNumber = 0;
 var quiz = new QuizCard();
 
+enum ButtonColor {Unanswered, CorrectAnswer, WrongAnswer}
+
+Color getButtonColor (ButtonColor status) {
+  switch (status) {
+    case ButtonColor.Unanswered: {
+      return Colors.white;
+    }
+    break;
+    case ButtonColor.CorrectAnswer: {
+      return Colors.green;
+    }
+    break;
+    case ButtonColor.WrongAnswer: {
+      return Colors.red;
+    }
+    break;
+
+    default: {
+      return Colors.white;
+    }
+  }
+}
+
+var buttonStatus = ButtonColor.Unanswered;
+
 
 
 class QuizPage extends StatefulWidget {
+
+
+
   @override
   _QuizPageState createState() => new _QuizPageState();
 }
@@ -159,16 +188,21 @@ class _QuizPageState extends State<QuizPage> {
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
-                          color: Colors.white,
+                          color: getButtonColor(buttonStatus),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
-                            if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
-                              finalScore = finalScore + 4;
-                            }else{
-                              debugPrint("Wrong");
-                            }
-                            updateQuestion();
+                            setState(() {
+                              if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
+                                finalScore = finalScore + 4;
+                                 buttonStatus = ButtonColor.CorrectAnswer;
+
+                              }else{
+                                debugPrint("Wrong");
+                                buttonStatus = ButtonColor.WrongAnswer;
+                              }
+
+                            });
                           },
                           child: Text(quiz.choices[questionNumber][0],
                           style: TextStyle(
@@ -181,16 +215,21 @@ class _QuizPageState extends State<QuizPage> {
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
-                          color: Colors.white,
+                          color: getButtonColor(buttonStatus),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
-                            if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
-                              finalScore = finalScore + 4;
-                            }else{
-                              debugPrint("Wrong");
-                            }
-                            updateQuestion();
+                            setState(() {
+                              if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
+                                finalScore = finalScore + 4;
+                                buttonStatus = ButtonColor.CorrectAnswer;
+
+                              }else{
+                                debugPrint("Wrong");
+                                buttonStatus = ButtonColor.WrongAnswer;
+                              }
+
+                            });
                           },
                           child: Text(quiz.choices[questionNumber][1],
                             style: TextStyle(
@@ -213,16 +252,21 @@ class _QuizPageState extends State<QuizPage> {
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
-                          color: Colors.white,
+                          color: getButtonColor(buttonStatus),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
-                            if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
-                              finalScore = finalScore + 4;
-                            }else{
-                              debugPrint("Wrong");
-                            }
-                            updateQuestion();
+                            setState(() {
+                              if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
+                                finalScore = finalScore + 4;
+                                buttonStatus = ButtonColor.CorrectAnswer;
+
+                              }else{
+                                debugPrint("Wrong");
+                                buttonStatus = ButtonColor.WrongAnswer;
+                              }
+
+                            });
                           },
                           child: Text(quiz.choices[questionNumber][2],
                             style: TextStyle(
@@ -235,16 +279,21 @@ class _QuizPageState extends State<QuizPage> {
                         RaisedButton (
                           padding: EdgeInsets.fromLTRB(10.0, 8.0, 10.0, 8.0),
                           elevation: 8.0,
-                          color: Colors.white,
+                          color: getButtonColor(buttonStatus),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                           onPressed: () {
-                            if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
-                              finalScore = finalScore + 4;
-                            }else{
-                              debugPrint("Wrong");
-                            }
-                            updateQuestion();
+                            setState(() {
+                              if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
+                                finalScore = finalScore + 4;
+                                buttonStatus = ButtonColor.CorrectAnswer;
+
+                              }else{
+                                debugPrint("Wrong");
+                                buttonStatus = ButtonColor.WrongAnswer;
+                              }
+
+                            });
                           },
                           child: Text(quiz.choices[questionNumber][3],
                             style: TextStyle(
@@ -323,6 +372,7 @@ class _QuizPageState extends State<QuizPage> {
       questionNumber = 0;
     });
   }
+
 
   void updateQuestion() {
     setState(() {
