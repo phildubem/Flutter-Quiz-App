@@ -200,7 +200,7 @@ class _QuizPageState extends State<QuizPage> {
 
                               }else{
                                 debugPrint("Wrong");
-                                buttonStatus = ButtonColor.WrongAnswer;
+                                buttonStatus = ButtonColor.Unanswered;
                               }
 
                             });
@@ -227,7 +227,7 @@ class _QuizPageState extends State<QuizPage> {
 
                               }else{
                                 debugPrint("Wrong");
-                                buttonStatus = ButtonColor.WrongAnswer;
+                                buttonStatus = ButtonColor.Unanswered;
                               }
 
                             });
@@ -265,7 +265,7 @@ class _QuizPageState extends State<QuizPage> {
 
                               }else{
                                 debugPrint("Wrong");
-                                buttonStatus = ButtonColor.WrongAnswer;
+                                buttonStatus = ButtonColor.Unanswered;
                               }
                             });
                           },
@@ -292,7 +292,7 @@ class _QuizPageState extends State<QuizPage> {
 
                               }else{
                                 debugPrint("Wrong");
-                                buttonStatus = ButtonColor.WrongAnswer;
+                                buttonStatus = ButtonColor.Unanswered;
                               }
 
                             });
