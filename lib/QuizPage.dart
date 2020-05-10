@@ -194,8 +194,9 @@ class _QuizPageState extends State<QuizPage> {
                           onPressed: () {
                             setState(() {
                               if (quiz.choices[questionNumber][0] == quiz.correctAnswers[questionNumber]){
-                                finalScore = finalScore + 4;
+                                 finalScore = finalScore + 4;
                                  buttonStatus = ButtonColor.CorrectAnswer;
+                                 questionNumber++;
 
                               }else{
                                 debugPrint("Wrong");
@@ -222,7 +223,7 @@ class _QuizPageState extends State<QuizPage> {
                             setState(() {
                               if (quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
                                 finalScore = finalScore + 4;
-                                buttonStatus = ButtonColor.CorrectAnswer;
+                                questionNumber++;
 
                               }else{
                                 debugPrint("Wrong");
@@ -260,6 +261,7 @@ class _QuizPageState extends State<QuizPage> {
                               if (quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
                                 finalScore = finalScore + 4;
                                 buttonStatus = ButtonColor.CorrectAnswer;
+                                questionNumber++;
 
                               }else{
                                 debugPrint("Wrong");
@@ -286,6 +288,7 @@ class _QuizPageState extends State<QuizPage> {
                               if (quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
                                 finalScore = finalScore + 4;
                                 buttonStatus = ButtonColor.CorrectAnswer;
+                                questionNumber++;
 
                               }else{
                                 debugPrint("Wrong");
